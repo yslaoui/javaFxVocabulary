@@ -24,9 +24,13 @@ public class VocabularyJavaFx extends Application {
         Button inputButton = new Button("Enter new words");
         Button practiceButton = new Button("Practice");
 
-        // layouts
+//         layouts
         TranslationView translationView = new TranslationView(dictionary);
         Parent translationLayout  = translationView.getView();
+
+        PracticeView practiceView = new PracticeView(dictionary);
+        Parent practiceLayout = practiceView.getView();
+
         HBox menu = new HBox();
         menu.setSpacing(10);
         menu.setPadding(new Insets(20, 20, 20, 20));
@@ -34,11 +38,12 @@ public class VocabularyJavaFx extends Application {
         menu.getChildren().addAll(inputButton, practiceButton);
         pane.setTop(menu);
         pane.setCenter(translationLayout);
-
-        // Scenes
+//        Scenes
         Scene scene = new Scene(pane);
-
-        // Windows
+//        Event listeners
+        inputButton.setOnAction((event) -> {pane.setCenter(translationLayout);});
+        practiceButton.setOnAction((event) -> {pane.setCenter(practiceLayout);});
+//        Windows
         window.setScene(scene);
         window.setTitle("Vocabulary app");
         window.show();
