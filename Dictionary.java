@@ -1,9 +1,6 @@
 package vocabulary;
 
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Random;
+import java.util.*;
 
 public class Dictionary {
     List<String> words;
@@ -12,7 +9,12 @@ public class Dictionary {
     public Dictionary() {
         this.words = new ArrayList<>();
         this.translations = new HashMap<>();
-        this.translations.put("Luggage", "Baggage");
+        this.add("Luggage", "Baggage");
+        this.add("Mountain", "Montagne");
+        this.add("Forest", "Forêt");
+        this.add("Sky", "Ciel");
+        this.add("Beach", "Mer");
+        this.add("Spain", "Espagne");
     }
 
     public String get(String word) {
@@ -29,6 +31,17 @@ public class Dictionary {
     public String getRandomWord() {
         Random random = new Random();
         return this.words.get(random.nextInt(this.words.size()));
+    }
+
+    public void printDictionary() {
+        System.out.println("The Dictionary has size " + this.translations.size() + ". It is: ");
+        for (Map.Entry<String, String> entry: this.translations.entrySet()) {
+            System.out.println(entry.getKey() + ": " +entry.getValue());
+        }
+        System.out.println("The list of words is: ");
+        for (String word: words) {
+            System.out.print(word + ", ");
+        }
     }
 }
 

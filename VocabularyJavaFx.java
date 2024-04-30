@@ -10,6 +10,7 @@ import javafx.scene.layout.HBox;
 import javafx.stage.Stage;
 
 import java.awt.*;
+import java.util.Map;
 
 public class VocabularyJavaFx extends Application {
 
@@ -40,6 +41,7 @@ public class VocabularyJavaFx extends Application {
         pane.setCenter(translationLayout);
 //        Scenes
         Scene scene = new Scene(pane);
+
 //        Event listeners
         inputButton.setOnAction((event) -> {pane.setCenter(translationLayout);});
         practiceButton.setOnAction((event) -> {pane.setCenter(practiceLayout);});
@@ -53,3 +55,6 @@ public class VocabularyJavaFx extends Application {
         launch(VocabularyJavaFx.class);
     }
 }
+
+
+

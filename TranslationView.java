@@ -19,9 +19,10 @@ public class TranslationView {
         // UI Layout
         Label wordLabel = new Label("Word");
         Label translationLabel = new Label("Translation");
-        TextField wordArea = new TextField();
-        TextField translationArea = new TextField();
+        TextField wordField = new TextField();
+        TextField translationField = new TextField();
         Button addButton = new Button("Add the word pair ");
+        Button debugButton = new Button("Debug ");
 
         // Component
         GridPane pane = new GridPane();
@@ -29,11 +30,26 @@ public class TranslationView {
         pane.setVgap(10);
         pane.setPadding(new Insets(20, 20, 20, 20));
         pane.add(wordLabel, 0, 0);
-        pane.add(wordArea, 0, 1);
+        pane.add(wordField, 0, 1);
         pane.add(translationLabel, 0, 2);
-        pane.add(translationArea, 0, 3);
+        pane.add(translationField, 0, 3);
         pane.add(addButton, 0, 4);
+        pane.add(debugButton, 0, 5);
+
+        // Event listener
+        addButton.setOnAction((event) -> {
+           dictionary.add(wordField.getText(), translationField.getText());
+           wordField.setText("");
+           translationField.setText("");
+        });
+
+        debugButton.setOnMouseClicked((event)-> {
+           this.dictionary.printDictionary();
+        });
+
         return pane;
+
+
     }
 
 
