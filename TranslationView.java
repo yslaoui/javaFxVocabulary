@@ -34,7 +34,7 @@ public class TranslationView {
         pane.add(translationLabel, 0, 2);
         pane.add(translationField, 0, 3);
         pane.add(addButton, 0, 4);
-        pane.add(debugButton, 0, 5);
+//        pane.add(debugButton, 0, 5);
 
         // Event listener
         addButton.setOnAction((event) -> {
